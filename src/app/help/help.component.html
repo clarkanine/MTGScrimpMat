@@ -1,0 +1,45 @@
+<h1 class="mat-display-1">MTG Scrimp Help</h1>
+<h2 class="mat-h2">So you want to stream paper MTG with OBS?</h2>
+<p class="mat-p">You've come to the right place! When I first started watching Star City Games or Channel Fireball or other 
+    pro MTG tournaments, I loved how crisp the layout looked. A buddy of mine at a local card shop decided to run
+    his own stream. I played in the local tournaments, watching the stream from the sidelines and noticed it was
+    very...bland. He literally had a webcam on a 5" tripod pointing at a table. No visuals on the stream either.
+    He had to remind his audience of the life totals and play by plays orally. I saw room for improvement, and 
+    thus, MTG Scrimp was born!
+</p>
+<h2 class="mat-h3">Setup</h2>
+<p>Since MTG Scrimp is young, there are a lot of features that can be improved. But for the time being, 
+  there are some relatively simple configurations you'll need/want in order to stream paper MTG effectively.
+  First off, please use MTG Scrimp on Google Chrome. It is the browser I developed MTG Scrimp for and also
+  happens to be my browser of choice.
+</p>
+<h3>'download link for google chrome'</h3>
+<p>
+  The text produced for your stream is going to be saved to files locally. Hopefully, OBS will end up supporting
+  reading text from URLs and not just files, but for the meantime, we'll make do. Some helpful configurations will 
+  be enabling Google Chrome to download multiple files at once. Also, specifying a new place for Google Chrome downloads 
+  to go will make organizing your text files easier. Note that if you go to another site in the Chrome Browser and download 
+  something, it will also go to that folder. Chrome easily lets you change your download folder.
+</p>
+<h3>'configure download settings in chrome'</h3>
+<h3>Setting up OBS</h3>
+<p>After configuring your Google Chrome download settings, the first thing you're going to want to do is navigate to 
+  the 'Current Game' page. You can do this from the menu on the left side of the screen or by pressing 3 horizontal lines
+  menu button.
+  <br><br>
+  Once there, go ahead and enter some values in both of the player forms and then press the 'Update Player' button underneath 
+  each of the forms. This might start the download automatically, or if you've just setup the ability to download multiple files,
+  you may be asked by Chrome if you'd like to allow this. Select whatever option pops up that lets you download multiple files
+  at once. 
+  <br><br>
+  This next part is the most time consuming and I'm hopeful that I can make it easier in the future. Go into OBS and create
+  'Text' sources for all of the values you want to display on screen (i.e. the fields available to change on the 'Current 
+  Game' page). Name them something meaningful like 'player1life' or 'right_player_name' or whatever your favorite naming 
+  convention is. Next, change the properties on each of these text to be able to 'Read from file'. On Mac, you can access 
+  these properties by right clicking and selecting 'Properties' or by selecting the source and clicking the gear icon. Once 
+  you've clicked the 'Read from file' checkbox, browse for the associated file that you just downloaded from MTG Scrimp.
+  <br><br>
+  You've now got everything setup! Move the values in OBS to wherever you'd like them to be on the screen! Maybe you even 
+  have a nice overlay to put them on. Now you can make changes within MTG Scrimp, and pressing 'Update Player' will save 
+  those changes which will then be seen by OBS.
+</p>

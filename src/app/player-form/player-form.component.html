@@ -1,0 +1,29 @@
+
+  <mat-form-field>
+      <mat-select placeholder="Select player" [(ngModel)]="selectedPlayer">
+        <mat-option *ngFor="let player of players" [value]="player" (click)="updatePlayerForm()">
+          {{ player.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  <form [formGroup]="playerForm" class="example-form">
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" formControlName="name" value="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Deck" formControlName="deck" value="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Life" formControlName="life" type="number">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Poison" formControlName="poison" type="number">
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button (click)="saveValues()">Update Player</button>

@@ -1,0 +1,16 @@
+
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .center {
+    margin: auto;
+    width: 50%;
+}
+
+.cardfinder {
+    max-width: 200px;
+}
+

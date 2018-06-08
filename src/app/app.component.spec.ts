@@ -1,10 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { MyNavComponent } from './my-nav/my-nav.component';
+import { CurrentGameComponent } from './current-game/current-game.component';
+import { PlayerListComponent } from './player-list/player-list.component';
+import { PlayerDialogComponent } from './player-dialog/player-dialog.component';
+import { PlayerFormComponent } from './player-form/player-form.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        MyNavComponent,
+        CurrentGameComponent,
+        PlayerDialogComponent,
+        PlayerFormComponent,
+        PlayerListComponent
       ],
     }).compileComponents();
   }));

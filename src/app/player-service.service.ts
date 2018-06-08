@@ -1,0 +1,45 @@
+
+
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { saveAs } from 'file-saver/FileSaver';
+
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+// import 'rxjs/add/operator/map'
+
+import { Player } from './data-model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PlayerServiceService {
+
+  players: Observable<Player[]>;
+  constructor(private http: HttpClient) { }
+
+  getData()
+  {
+      const headers = new Headers();
+      headers.append('Accept', 'text/plain');
+
+      return this.http.get('api/players');
+      // return this.http.get('https://api.magicthegathering.io/v1/cards');
+  }
+
+  addPlayer(player: Player)
+  {
+    const headers = new Headers();
+    headers.append('Accept', 'text/plain');
+
+    return this.http.post('api/players', (player));
+  }
+
+  deletePlayer(player: Player)
+  {
+    const headers = new Headers();
+    headers.append('Accept', 'text/plain');
+
+    return this.http.delete('api/players/'+player._id);
+  }
+}

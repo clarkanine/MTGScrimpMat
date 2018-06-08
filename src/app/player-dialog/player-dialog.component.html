@@ -1,0 +1,23 @@
+  <form [formGroup]="playerForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Deck" formControlName="deck" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Wins" formControlName="wins" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Losses" formControlName="losses" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Draws" formControlName="draws" type="number" required>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.player" cdkFocusInitial (click)="savePlayer()" [disabled]="!playerForm.valid">Save</button>
+  <button mat-raised-button (click)="onNoClick()">Cancel</button>

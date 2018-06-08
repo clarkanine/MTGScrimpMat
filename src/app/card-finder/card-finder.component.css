@@ -1,0 +1,31 @@
+.example-card {
+    max-width: 200px;
+    float: left
+  }
+
+  .select-card {
+    max-width: 25;
+    float: left
+  }
+
+  .card-hover {
+      cursor: pointer;
+  }
+
+  .grid-list {
+    background-color: #dddddd;
+  }
+
+  .display-card {
+    margin: auto; width: 50%;
+  }
+
+  .scrollable {
+    overflow-y:scroll;
+    margin: auto;
+    height: 300px;
+  }
+
+  .card-background {
+    background-color: #efefef;
+  }
