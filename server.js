@@ -1,9 +1,9 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
-const Task = require('./api/models/playerModel');
-const bodyParser = require('body-parser');
+// const mongoose = require('mongoose');
+// const Task = require('./api/models/playerModel');
+// const bodyParser = require('body-parser');
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -18,11 +18,8 @@ const forceSSL = function() {
   }
 }
 
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017'); 
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 // var routes = require(path.join(__dirname + 'routes', 'playerRoutes')); //importing route
 // var routes = require(path.join(__dirname + 'modules.js')); //importing route
