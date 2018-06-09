@@ -18,6 +18,9 @@ const forceSSL = function() {
   }
 }
 
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017'); 
+
 // Instruct the app
 // to use the forceSSL
 // middleware
