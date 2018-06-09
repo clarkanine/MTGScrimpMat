@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-app.use(express.static('./dist/myappname'));
+app.use(express.static('./dist/mtgscrimpmat'));
 app.get('/*', function(req, res) {
   res.sendFile(path.join('./dist/mtgscrimpmat/index.html'));
 });
