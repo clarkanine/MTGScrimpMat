@@ -21,6 +21,13 @@ const forceSSL = function() {
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017'); 
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+var routes = require('./api/routes/playerRoutes'); //importing route
+// var routes = require('./api/modules.js'); //importing route
+routes(app); //register the route
+
 // Instruct the app
 // to use the forceSSL
 // middleware
