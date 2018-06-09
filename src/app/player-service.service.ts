@@ -33,7 +33,7 @@ export class PlayerServiceService {
     const headers = new Headers();
     headers.append('Accept', 'text/plain');
 
-    return this.http.post('api/players', (player));
+    return this.http.post(this.api, (player));
   }
 
   deletePlayer(player: Player)
@@ -41,6 +41,6 @@ export class PlayerServiceService {
     const headers = new Headers();
     headers.append('Accept', 'text/plain');
 
-    return this.http.delete('api/players/'+player._id);
+    return this.http.delete(this.api + '/' + player._id);
   }
 }
