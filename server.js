@@ -44,6 +44,6 @@ console.log('todo list RESTful API server started on: ' + port);
   app.use(express.static(distDir));
 
   app.get('*', function(req, res) {
-    const index = path.join(__dirname, 'src', 'index.html');
+    const index = path.join(__dirname, 'dist', 'index.html');
     res.sendFile(index);
   })
