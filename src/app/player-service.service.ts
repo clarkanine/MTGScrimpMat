@@ -15,6 +15,7 @@ import { Player } from './data-model';
 })
 export class PlayerServiceService {
 
+  api = 'https://warm-beyond-34559.herokuapp.com/players';
   players: Observable<Player[]>;
   constructor(private http: HttpClient) { }
 
@@ -23,7 +24,7 @@ export class PlayerServiceService {
       const headers = new Headers();
       headers.append('Accept', 'text/plain');
 
-      return this.http.get('api/players');
+      return this.http.get(this.api);
       // return this.http.get('https://api.magicthegathering.io/v1/cards');
   }
 
