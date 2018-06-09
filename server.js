@@ -1,6 +1,17 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+const Task = require('./api/models/todoListModel'); //created model loading here
+const Player = require('./api/models/playerModel'); 
+const path = require("path");
+const bodyParser = require('body-parser');
+
+// mongoose instance connection url connection
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost:27017'); 
+
+var routes = require('./api/routes/playerRoutes'); //importing route
 
 // If an incoming request uses
 // a protocol other than HTTPS,
@@ -33,7 +44,7 @@ app.get('/*', function(req, res) {
 
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 4201);
 // // // const express = require('express');
 // // // const app = express();
 // // // const path = require('path');
