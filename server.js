@@ -40,7 +40,7 @@ console.log('todo list RESTful API server started on: ' + port);
 //     res.status(404).send({url: req.originalUrl + ' not found' + req.url + req.})
 //   });
 
-  var distDir = __dirname + "/dist/";
+  var distDir = __dirname + "/src/";
   app.use(express.static(distDir));
 
   app.get('*', function(req, res) {
