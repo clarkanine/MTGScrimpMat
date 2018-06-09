@@ -41,3 +41,7 @@ console.log('todo list RESTful API server started on: ' + port);
 
   var distDir = __dirname + "/dist/";
   app.use(express.static(distDir));
+
+  app.get('*', function(req, res) {
+    res.sendfile('./server/views/index.html')
+  })
