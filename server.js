@@ -1,6 +1,9 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+const Task = require('./api/models/playerModel');
+const bodyParser = require('body-parser');
 
 // If an incoming request uses
 // a protocol other than HTTPS,
