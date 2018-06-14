@@ -14,14 +14,14 @@ export class AuthService {
     domain: 'scrimp.auth0.com',
     responseType: 'token id_token',
     audience: 'https://scrimp.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'https://stark-headland-48165.herokuapp.com/callback',
     scope: 'openid profile'
   });
 
 
   constructor(public router: Router) {}
 
-  public userProfile: any;
+  public userProfile = {name: 'defaultUser'};
 
   public login(): void {
     this.auth0.authorize();
