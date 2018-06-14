@@ -4,6 +4,8 @@ import { CardService } from '../card.service';
 import { Card } from '../data-model';
 
 import { saveAs } from 'file-saver/FileSaver';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-card-finder',
@@ -13,10 +15,13 @@ import { saveAs } from 'file-saver/FileSaver';
 export class CardFinderComponent implements OnInit {
   oraclePrefix = "http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=";
   displayCardUrl = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=0&type=card";
+  // displayCardUrl = "https://api.scryfall.com/cards/multiverse/409574";
+  sryfallEndpoint = "https://api.scryfall.com/cards/multiverse/";
   cardName = "";
   cardList: Array<Card>;
 
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService,
+              private auth: AuthService) { }
 
   ngOnInit() {
 

@@ -17,7 +17,8 @@ import { MatToolbarModule,
         MatFormFieldModule,
         MatCardModule,
         MatDialogModule,
-        MatGridListModule } from '@angular/material';
+        MatGridListModule
+       } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +30,10 @@ import { PlayerDialogComponent } from './player-dialog/player-dialog.component';
 import { CardFinderComponent } from './card-finder/card-finder.component';
 import { CardService } from './card.service';
 import { HelpComponent } from './help/help.component';
+import { AuthService } from './auth.service';
+
+import { ProfileComponent } from './profile/profile.component';
+import { Md5 } from 'ts-md5/dist/md5';
 
 const appRoutes: Routes = [
   {
@@ -37,13 +42,17 @@ const appRoutes: Routes = [
   },
   {
     path:'player-list',
-    component: PlayerListComponent
+    component: PlayerListComponent,
+    // canActivate: [AuthGuard]
   },
   {
     path:'help',
     component: HelpComponent
+  },
+  {
+    path:'callback',
+    component: ProfileComponent
   }
-
 ];
 
 @NgModule({
@@ -55,7 +64,8 @@ const appRoutes: Routes = [
     PlayerFormComponent,
     PlayerDialogComponent,
     CardFinderComponent,
-    HelpComponent
+    HelpComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -76,9 +86,13 @@ const appRoutes: Routes = [
     MatCardModule,
     MatDialogModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
   ],
-  providers: [PlayerServiceService, CardService],
+  providers: [
+    AuthService,
+    PlayerServiceService,
+    CardService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [PlayerDialogComponent]
 })

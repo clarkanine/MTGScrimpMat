@@ -7,6 +7,7 @@ export class Player {
     losses = 0;
     draws = 0;
     matches =[];
+    userIdentifier = 'defaultUser';
   }
 
 export class Match {

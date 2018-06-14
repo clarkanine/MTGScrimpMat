@@ -3,6 +3,7 @@ import { Player } from '../data-model';
 import { PlayerServiceService } from '../player-service.service';
 import { MatDialog, MatTable } from '@angular/material';
 import { PlayerDialogComponent } from '../player-dialog/player-dialog.component';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-player-list',
@@ -14,9 +15,13 @@ export class PlayerListComponent implements OnInit {
   displayedColumns = ['points', 'name', 'deck', 'record', 'options'];
   dataSource: Player[];
   response: any;
+  profile: any;
 
-  constructor(private playerService: PlayerServiceService, public dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef)
-  {
+  constructor(
+    private playerService: PlayerServiceService, 
+    public dialog: MatDialog, 
+    private changeDetectorRefs: ChangeDetectorRef,
+    private authService: AuthService){
   }
 
   ngOnInit()

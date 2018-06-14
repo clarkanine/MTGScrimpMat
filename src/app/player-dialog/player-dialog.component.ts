@@ -9,15 +9,12 @@ import { OnChanges } from '@angular/core';
   templateUrl: './player-dialog.component.html',
   styleUrls: ['./player-dialog.component.css']
 })
-export class PlayerDialogComponent implements OnInit, OnChanges {
+export class PlayerDialogComponent implements OnInit {
   playerForm: FormGroup;
   constructor(public dialogRef: MatDialogRef<PlayerDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder) { }
 
-    ngOnChanges(changes: SimpleChanges)
-    {
-      console.log(this.data);
-    }
+  @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder) { }
+
   ngOnInit() {
     console.log(this.data);
 

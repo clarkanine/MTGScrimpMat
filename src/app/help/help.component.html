@@ -1,4 +1,22 @@
-<h1 class="mat-display-1">MTG Scrimp Help</h1>
+<h1>MTG Scrimp Help</h1>
+<div>
+    <mat-list>
+        <h4>Hardware</h4>
+        <mat-list-item *ngFor="let h of hardware">
+            <h4 mat-line *ngIf="h.link !== ''"><a href={{h.link}}>{{h.title}}</a></h4>
+            <h4 mat-line *ngIf="h.link === ''">{{h.title}}</h4>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div>
+  <mat-list>
+      <h4>Software</h4>
+      <mat-list-item *ngFor="let s of software">
+          <h4 mat-line><a href={{s.link}}>{{s.title}}</a></h4>
+      </mat-list-item>
+  </mat-list>
+</div>
+
 <h2 class="mat-h2">So you want to stream paper MTG with OBS?</h2>
 <p class="mat-p">You've come to the right place! When I first started watching Star City Games or Channel Fireball or other 
     pro MTG tournaments, I loved how crisp the layout looked. A buddy of mine at a local card shop decided to run
@@ -20,6 +38,10 @@
   be enabling Google Chrome to download multiple files at once. Also, specifying a new place for Google Chrome downloads 
   to go will make organizing your text files easier. Note that if you go to another site in the Chrome Browser and download 
   something, it will also go to that folder. Chrome easily lets you change your download folder.
+</p>
+<p>
+  Since you'll probably be pressing 'Update' on the players a lot, you'll want your downloads to overwrite instead of putting 
+  (#) at the end. <a href="https://chrome.google.com/webstore/detail/downloads-overwrite-alrea/lddjgfpjnifpeondafidennlcfagekbp">Here's an extension that does just that.</a>
 </p>
 <h3>'configure download settings in chrome'</h3>
 <h3>Setting up OBS</h3>
@@ -43,3 +65,4 @@
   have a nice overlay to put them on. Now you can make changes within MTG Scrimp, and pressing 'Update Player' will save 
   those changes which will then be seen by OBS.
 </p>
+

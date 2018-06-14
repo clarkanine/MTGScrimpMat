@@ -8,9 +8,10 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="/current-game">Current Game</a>
-      <a mat-list-item href="/player-list">Player List</a>
-      <a mat-list-item href="/help">Help</a>
+      <a mat-list-item routerLink="/current-game">Current Game</a>
+      <a mat-list-item routerLink="/player-list">Player List</a>
+      <a mat-list-item routerLink="/help">Help</a>
+      <a mat-list-item routerLink="/login">Login</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,6 +25,9 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>MTG Scrimp</span>
+      <div class="pull-right"><button mat-button *ngIf="!authService.userProfile" mat-button (click)="loginClicked()">Login</button></div>
+      <button mat-button *ngIf="authService.userProfile" (click)="authService.logout()" class="pull-right">Logout {{authService.getEmail()}}</button>
+      <button mat-button (click)="checkLoggedIn()">Check logged in {{authService.getEmail()}}</button>
     </mat-toolbar>
     <router-outlet class="margins"></router-outlet>
   </mat-sidenav-content>
