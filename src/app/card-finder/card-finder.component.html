@@ -24,7 +24,7 @@
               <img mat-card-image [src]="card.imageUrl" class="card-hover">
               <mat-card-actions>
                 <div>
-                  <button mat-raised-button (click)="openOracle(card.multiverseid)">Oracle Text</button>
+                  <button mat-raised-button (click)="cardService.openOracle(card.multiverseid)">Oracle Text</button>
                   </div>
               </mat-card-actions>
           </mat-card>

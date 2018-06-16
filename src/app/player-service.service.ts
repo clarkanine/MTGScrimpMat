@@ -25,7 +25,7 @@ export class PlayerServiceService implements OnInit{
 
   ngOnInit(){
   }
-  
+
   getData()
   {
       if(!this.auth.userProfile || !this.auth.userProfile.name) {
@@ -44,6 +44,15 @@ export class PlayerServiceService implements OnInit{
     headers.append('Accept', 'text/plain');
 
     return this.http.post(this.api, (player));
+  }
+
+  updatePlayer(player: Player)
+  {
+    player.userIdentifier = Md5.hashStr(this.auth.userProfile.name).toString();
+    const headers = new Headers();
+    headers.append('Accept', 'text/plain');
+
+    return this.http.put(this.api, (player));
   }
 
   deletePlayer(player: Player)

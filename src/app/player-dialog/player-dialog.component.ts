@@ -23,7 +23,8 @@ export class PlayerDialogComponent implements OnInit {
       deck: '',
       wins: 0,
       losses: 0,
-      draws: 0
+      draws: 0,
+      deckList: ''
     })
 
     this.updatePlayerForm();
@@ -35,7 +36,8 @@ export class PlayerDialogComponent implements OnInit {
       deck: this.data.player.deck ? this.data.player.deck : '',
       wins: this.data.player.wins,
       losses: this.data.player.losses,
-      draws: this.data.player.draws
+      draws: this.data.player.draws,
+      deckList: this.data.player.deckList
     });
   }
 
@@ -45,6 +47,9 @@ export class PlayerDialogComponent implements OnInit {
     this.data.player.wins = this.playerForm.value.wins;
     this.data.player.losses = this.playerForm.value.losses;
     this.data.player.draws = this.playerForm.value.draws;
+    this.data.player.deckList = this.playerForm.value.deckList;
+
+    console.log(this.data.player.deckList);
   }
 
   onNoClick(): void {

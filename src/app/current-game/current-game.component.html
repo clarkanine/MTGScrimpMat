@@ -1,4 +1,23 @@
-<div class="side-by-side"><app-player-form  [filePrefix]="'player1'" class="margins"></app-player-form></div>
-<div class="side-by-side"><app-player-form  [filePrefix]="'player2'" class="margins"></app-player-form></div>
-
-<app-card-finder></app-card-finder>
+<div class="side-by-side"><app-player-form  [selectedPlayer]="players[0]" (selectedPlayerChange)="players[0] = $event" [filePrefix]="'player1'" class="margins"></app-player-form></div>
+<div class="side-by-side"><app-player-form  [selectedPlayer]="players[1]" (selectedPlayerChange)="players[1] = $event" [filePrefix]="'player2'" class="margins"></app-player-form></div>
+<mat-card>
+        <mat-card-content>
+          <mat-tab-group class="demo-tab-group">
+            <mat-tab label="Card Search">
+              <div>
+               <app-card-finder></app-card-finder>
+              </div>
+            </mat-tab>
+            <mat-tab label="Player 1 Deck">
+                <div>
+                    <app-player-deck-viewer [player]="players[0]"></app-player-deck-viewer>
+                </div>
+            </mat-tab>
+            <mat-tab label="Player 2 Deck">
+                <div>
+                    <app-player-deck-viewer [player]="players[1]"></app-player-deck-viewer>
+                </div>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>

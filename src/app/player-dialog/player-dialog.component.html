@@ -4,7 +4,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Deck" formControlName="deck" required>
+        <input matInput placeholder="Deck Name" formControlName="deck" required>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -17,6 +17,10 @@
 
     <mat-form-field class="example-full-width">
         <input matInput placeholder="Draws" formControlName="draws" type="number" required>
+    </mat-form-field>
+<br>
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Decklist" formControlName="deckList" item-height="200"></textarea>
     </mat-form-field>
   </form>
   <button mat-raised-button color="primary" [mat-dialog-close]="data.player" cdkFocusInitial (click)="savePlayer()" [disabled]="!playerForm.valid">Save</button>

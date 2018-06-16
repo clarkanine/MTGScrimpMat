@@ -27,7 +27,6 @@
       <span>MTG Scrimp</span>
       <div class="pull-right"><button mat-button *ngIf="!authService.userProfile" mat-button (click)="loginClicked()">Login</button></div>
       <button mat-button *ngIf="authService.userProfile" (click)="authService.logout()" class="pull-right">Logout {{authService.getEmail()}}</button>
-      <button mat-button (click)="checkLoggedIn()">Check logged in {{authService.getEmail()}}</button>
     </mat-toolbar>
     <router-outlet class="margins"></router-outlet>
   </mat-sidenav-content>

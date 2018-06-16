@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Player }        from '../data-model';
 import { PlayerServiceService } from '../player-service.service';
@@ -8,6 +8,7 @@ import { saveAs } from 'file-saver/FileSaver';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+// import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-player-form',
@@ -16,9 +17,11 @@ import { Observable } from 'rxjs';
 })
 export class PlayerFormComponent implements OnInit, OnChanges{
   @Input() filePrefix: string;
+  @Input() selectedPlayer: Player;
+  @Output() selectedPlayerChange =  new EventEmitter<Player>();
 
   playerForm: FormGroup;
-  selectedPlayer: Player;
+  // selectedPlayer: Player;
   players: Player[];
 
   constructor(private fb: FormBuilder, private playerService: PlayerServiceService) { }
@@ -47,6 +50,12 @@ export class PlayerFormComponent implements OnInit, OnChanges{
       life: 20,
       poison: 0
     });
+  }
+
+  playerChanged()
+  {
+    this.selectedPlayerChange.emit(this.selectedPlayer);
+    // this.updatePlayerForm();
   }
 
   saveValues() {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -7,19 +7,25 @@ import * as auth0 from 'auth0-js';
 (window as any).global = window;
 
 @Injectable({ providedIn: 'root'})
-export class AuthService {
+export class AuthService implements OnInit{
 
   auth0 = new auth0.WebAuth({
     clientID: 'oqfMcWTBz3tSrNfoxfR3dbIDpxj4NpHO',
     domain: 'scrimp.auth0.com',
     responseType: 'token id_token',
     audience: 'https://scrimp.auth0.com/userinfo',
-    redirectUri: 'https://stark-headland-48165.herokuapp.com/callback',
+    // redirectUri: 'https://stark-headland-48165.herokuapp.com/callback',
+    redirectUri: 'http://localhost:4200/callback',
     scope: 'openid profile'
   });
 
 
   constructor(public router: Router) {}
+
+  ngOnInit()
+  {
+    var temp = '';
+  }
 
   public userProfile = {name: 'defaultUser'};
 

@@ -8,6 +8,7 @@ export class Player {
     draws = 0;
     matches =[];
     userIdentifier = 'defaultUser';
+    deckList = '';
   }
 
 export class Match {

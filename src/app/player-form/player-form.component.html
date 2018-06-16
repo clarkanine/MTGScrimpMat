@@ -1,6 +1,6 @@
 
   <mat-form-field>
-      <mat-select placeholder="Select player" [(ngModel)]="selectedPlayer">
+      <mat-select placeholder="Select player" [(ngModel)]="selectedPlayer" (ngModelChange)="playerChanged()">
         <mat-option *ngFor="let player of players" [value]="player" (click)="updatePlayerForm()">
           {{ player.name }}
         </mat-option>

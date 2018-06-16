@@ -17,7 +17,8 @@ import { MatToolbarModule,
         MatFormFieldModule,
         MatCardModule,
         MatDialogModule,
-        MatGridListModule
+        MatGridListModule,
+        MatTabsModule
        } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -34,6 +35,7 @@ import { AuthService } from './auth.service';
 
 import { ProfileComponent } from './profile/profile.component';
 import { Md5 } from 'ts-md5/dist/md5';
+import { PlayerDeckViewerComponent } from './player-deck-viewer/player-deck-viewer.component';
 
 const appRoutes: Routes = [
   {
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     PlayerDialogComponent,
     CardFinderComponent,
     HelpComponent,
-    ProfileComponent
+    ProfileComponent,
+    PlayerDeckViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -87,6 +90,7 @@ const appRoutes: Routes = [
     MatDialogModule,
     HttpClientModule,
     MatGridListModule,
+    MatTabsModule
   ],
   providers: [
     AuthService,

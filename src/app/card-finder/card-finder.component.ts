@@ -20,7 +20,7 @@ export class CardFinderComponent implements OnInit {
   cardName = "";
   cardList: Array<Card>;
 
-  constructor(private cardService: CardService,
+  constructor(public cardService: CardService,
               private auth: AuthService) { }
 
   ngOnInit() {

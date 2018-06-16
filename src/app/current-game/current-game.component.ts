@@ -15,6 +15,8 @@ import { CardFinderComponent } from '../card-finder/card-finder.component';
 })
 export class CurrentGameComponent implements OnInit {
 
+  player1: Player;
+  player2: Player;
   players: Player[];
   constructor(private http: HttpClient) { }
 

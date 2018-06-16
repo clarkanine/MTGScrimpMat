@@ -31,7 +31,9 @@ export class PlayerListComponent implements OnInit {
 
   getPlayersFromDb()
   {
-    this.playerService.getData().subscribe((data: Player[]) => this.dataSource = data);
+    this.playerService.getData().subscribe(
+      (data: Player[]) => 
+      this.dataSource = data);
   }
 
   getRecord(player: Player)
@@ -86,8 +88,11 @@ export class PlayerListComponent implements OnInit {
       playerToEdit.wins = result.wins;
       playerToEdit.losses = result.losses;
       playerToEdit.draws = result.draws;
+      playerToEdit.deckList = result.deckList;
 
-      this.table.renderRows();
+      // this.table.renderRows();
+      this.playerService.updatePlayer(result as Player).subscribe((response: any) => this.response = response);
+      this.getPlayersFromDb();
     });
   }
 
