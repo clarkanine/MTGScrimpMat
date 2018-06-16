@@ -17,8 +17,8 @@ import { Md5 } from 'ts-md5/dist/md5';
 })
 export class PlayerServiceService implements OnInit{
 
-  // api = 'https://warm-beyond-34559.herokuapp.com/players';
-  api = 'api/players'
+  api = 'https://warm-beyond-34559.herokuapp.com/players';
+  // api = 'api/players'
   players: Observable<Player[]>;
   profile: any;
   constructor(private http: HttpClient, private auth: AuthService) { }
