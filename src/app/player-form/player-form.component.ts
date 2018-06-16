@@ -40,6 +40,7 @@ export class PlayerFormComponent implements OnInit, OnChanges{
       poison: 0
     })
 
+    this.updatePlayerForm();
     this.playerForm.valueChanges.subscribe(console.log);
   }
 
@@ -58,6 +59,7 @@ export class PlayerFormComponent implements OnInit, OnChanges{
     // this.updatePlayerForm();
   }
 
+  //TODO refactor this to use some sort of SaveService
   saveValues() {
     // if(!this.selectedPlayer)
     //   return;

@@ -15,16 +15,21 @@ import { Md5 } from 'ts-md5/dist/md5';
 @Injectable({
   providedIn: 'root'
 })
-export class PlayerServiceService implements OnInit{
+export class PlayerServiceService{
 
+  //@PRODUCTION
   api = 'https://warm-beyond-34559.herokuapp.com/players';
+  
+  //@DEVELOPMENT
   // api = 'api/players'
   players: Observable<Player[]>;
   profile: any;
+  selectedPlayersForCurrentGame: Player[] = [];
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  ngOnInit(){
-  }
+  // ngOnInit(){
+  //   // this.selectedPlayersForCurrentGame = [];
+  // }
 
   getData()
   {
@@ -61,5 +66,14 @@ export class PlayerServiceService implements OnInit{
     headers.append('Accept', 'text/plain');
 
     return this.http.delete(this.api + '/' + player._id);
+  }
+
+  getSelectedPlayerByIndex(i: number)
+  {
+    return this.selectedPlayersForCurrentGame[i] ? this.selectedPlayersForCurrentGame[i] : new Player();
+  }
+
+  setSelectedPlayerByIndex(i: number, player: Player) {
+    this.selectedPlayersForCurrentGame[i] = player;
   }
 }

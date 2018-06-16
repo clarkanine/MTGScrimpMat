@@ -46,7 +46,7 @@ export class CardService {
     let observables: Observable<any>[] = [];
 
     var cards = [];
-    deckList = deckList.replace(/(\d )/g, "");
+    deckList = deckList.replace(/(\d+ )/g, "");
     var list = deckList.split(/\n/);
     if(list[list.length-1] === "")
       delete list[list.length-1];

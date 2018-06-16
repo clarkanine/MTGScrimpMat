@@ -14,7 +14,10 @@ export class AuthService implements OnInit{
     domain: 'scrimp.auth0.com',
     responseType: 'token id_token',
     audience: 'https://scrimp.auth0.com/userinfo',
+    //@PRODUCTION
     redirectUri: 'https://stark-headland-48165.herokuapp.com/callback',
+
+    //@DEVELOPMENT
     // redirectUri: 'http://localhost:4200/callback',
     scope: 'openid profile'
   });

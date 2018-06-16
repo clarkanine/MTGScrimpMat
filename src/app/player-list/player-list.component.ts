@@ -62,8 +62,12 @@ export class PlayerListComponent implements OnInit {
        return;
 
       console.log('The dialog was closed');
-      this.playerService.addPlayer(result as Player).subscribe((response: any) => this.response = response);
-      this.getPlayersFromDb();
+      this.playerService.addPlayer(result as Player).subscribe((response: any) => 
+      {
+        this.response = response;
+        this.getPlayersFromDb();
+      });
+      
       // this.dataSource.push(result);
       this.table.renderRows();
     });
@@ -91,8 +95,11 @@ export class PlayerListComponent implements OnInit {
       playerToEdit.deckList = result.deckList;
 
       // this.table.renderRows();
-      this.playerService.updatePlayer(result as Player).subscribe((response: any) => this.response = response);
-      this.getPlayersFromDb();
+      this.playerService.updatePlayer(result as Player).subscribe((response: any) => 
+      {
+        this.response = response;
+        this.getPlayersFromDb();
+      });
     });
   }
 

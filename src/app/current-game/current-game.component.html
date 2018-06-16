@@ -1,5 +1,8 @@
-<div class="side-by-side"><app-player-form  [selectedPlayer]="players[0]" (selectedPlayerChange)="players[0] = $event" [filePrefix]="'player1'" class="margins"></app-player-form></div>
-<div class="side-by-side"><app-player-form  [selectedPlayer]="players[1]" (selectedPlayerChange)="players[1] = $event" [filePrefix]="'player2'" class="margins"></app-player-form></div>
+<div class="side-by-side"><app-player-form  [selectedPlayer]="players[0]" (selectedPlayerChange)="this.setCachedPlayerForIndex(0, $event)" [filePrefix]="'player1'" class="margins"></app-player-form></div>
+<div class="side-by-side"><app-player-form  [selectedPlayer]="players[1]" (selectedPlayerChange)="this.setCachedPlayerForIndex(1, $event)" [filePrefix]="'player2'" class="margins"></app-player-form></div>
+
+<!-- <div class="side-by-side"><app-player-form  [selectedPlayer]="playerService.getSelectedPlayerByIndex(0)" (selectedPlayerChange)="setSelectedPlayerByIndex(0, $event)" [filePrefix]="'player1'" class="margins"></app-player-form></div> -->
+
 <mat-card>
         <mat-card-content>
           <mat-tab-group class="demo-tab-group">
