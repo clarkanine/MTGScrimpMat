@@ -1,5 +1,7 @@
+<mat-card class="nice-text" fxLayoutAlign="center center"> 
+        <mat-card-content>
 <h1>MTG Scrimp Help</h1>
-<div>
+<!-- <div>
     <mat-list>
         <h4>Hardware</h4>
         <mat-list-item *ngFor="let h of hardware">
@@ -7,16 +9,81 @@
             <h4 mat-line *ngIf="h.link === ''">{{h.title}}</h4>
         </mat-list-item>
     </mat-list>
-</div>
+</div> -->
 <div>
   <mat-list>
-      <h4>Software</h4>
+      <h4>Useful Links</h4>
       <mat-list-item *ngFor="let s of software">
           <h4 mat-line><a href={{s.link}}>{{s.title}}</a></h4>
       </mat-list-item>
   </mat-list>
 </div>
+<h2 class="mat-h2">*Attention*</h2>
+<p class="mat-p">
+    This web application has only been run and tested on Google Chrome. The following instructions assume that is the browser it is 
+    running on. That's not to say it <i>won't</i> work on other browsers, I just have yet to test and support them.
+</p>
 
+<h2 class="mat-h2">Setting up your players</h2>
+<p class="mat-p">
+    Go to the Player List page from the menu on the left. If you haven't logged in to your own account, you won't see 
+    your current players, so start adding them! Pressing the New Player button will bring up a dialog where you can 
+    enter player information, including a deck list. The deck list <strong>must</strong> be formatted like the following 
+    <br>
+        4 Snapcaster Mage
+    <br>
+        4 Serum visions
+    <br>
+    .
+    <br>
+    .
+    <br>
+    .
+    <br> 
+    i.e. the quantity of the card followed by its name. MTGGoldfish and TappedOut have an easy way to get lists of 
+    existing decks in this format. 
+    <br><br>
+</p>
+<h2 class="mat-h2">Using the interface</h2>
+<p class="mat-p">
+    Once you've added your players, navigate to the Current Game page from the menu on the left. Currently, MTGScrimp 
+    supports two-player magic games. You can select a player from the drop down list of players that you just created. 
+    Selecting a player will auto populate the form fields with information, as well as the corresponding deck list tab 
+    in the content below. 
+</p>
+<h2 class="mat-h2">Saving player data</h2>
+<p class="mat-p">
+    MTGScrimp is currently only capable of saving files locally. When you press the Save Player button, it will start 
+    to download a file for each form field. 
+    <br>
+    <strong>Note: You will want to be able to download multiple files at once and have them overwrite existing files. 
+            To do that, 
+            checkout the Overwrite Downloads Extension and Configure Downloads links above. It is helpful to download 
+            these files to a well named folder such as MTGScrimpTextFiles. 
+    </strong>
+</p>
+<h2 class="mat-h2">Setting up OBS</h2>
+<p class="mat-p">
+    Go ahead and click on the Save Player buttons for both of the players. You should see downloads for text files 
+    named someting like player1life.txt. To get these showing on OBS, create a text source that reads from its corresponding 
+    file that was created. Move them around until it looks pretty. Maybe you have a neat overlay to make 
+    it real fancy. Try changing some life totals and pressing Save Player; it should save the values and show up 
+    on your OBS window. 
+</p>
+<h2 class="mat-h2">Saving cards</h2>
+<p class="mat-p">
+    If you have a reason to display a card image on your stream, you can do that pretty easily with MTGScrimp. If the active 
+    players have deck lists, the cards will show up in their corresponding tabs in the bottom area. You can right-click on the 
+    image and Save As (preferably to the folder that has your text files to keep things tidy). If your players don't have deck lists, 
+    you can simply search for a card using the Card Search tab. Set up an Image Source in OBS from that file you just downloaded. 
+    Under each card is a link to its oracle text in case you need clarification when a heated argument begins during a game. 
+</p>
+<h2 class="mat-h2">Conclusion</h2>
+<p class="mat-p">
+    This is a pet project of mine. I have a full time job, but I wanted to create this in my free time since I will use it myself. 
+    If you run into problems, find bugs, or have feature requests, please feel free to contact me at <a href="mailto:mtgscrimp@gmail.com">mtgscrimp@gmail.com</a>.
+</p>
+<!-- 
 <h2 class="mat-h2">So you want to stream paper MTG with OBS?</h2>
 <p class="mat-p">You've come to the right place! When I first started watching Star City Games or Channel Fireball or other 
     pro MTG tournaments, I loved how crisp the layout looked. A buddy of mine at a local card shop decided to run
@@ -65,4 +132,5 @@
   have a nice overlay to put them on. Now you can make changes within MTG Scrimp, and pressing 'Update Player' will save 
   those changes which will then be seen by OBS.
 </p>
-
+</mat-card-content>
+</mat-card> -->
