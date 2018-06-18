@@ -5,7 +5,7 @@
 
   <button mat-button (click)="searchForCard()">Search</button>
 
-  <div>
+  <!-- <div>
     <mat-card class="example-card">
         <img mat-card-image [src]="displayCardUrl">
         <mat-card-actions>
@@ -14,17 +14,16 @@
           </div>
           </mat-card-actions>
     </mat-card>
-  </div>
-  <br>
+  </div> -->
 
-  <div class="normal-margin scrollable">
+  <div>
     <mat-grid-list class="grid-list" cols="8" rowHeight="1:2">
       <mat-grid-tile *ngFor="let card of cardList">
-          <mat-card (click)="setDisplayCardUrl(card.imageUrl)" class="side-by-side card-background">
+          <mat-card (click)="setDisplayCardUrl(card.imageUrl)" class="card-background">
               <img mat-card-image [src]="card.imageUrl" class="card-hover">
               <mat-card-actions>
-                <div>
-                  <button mat-raised-button (click)="cardService.openOracle(card.multiverseid)">Oracle Text</button>
+                <div class="display-card">
+                  <button mat-raised-button (click)="cardService.openOracle(card.multiverseid)">Oracle</button>
                   </div>
               </mat-card-actions>
           </mat-card>

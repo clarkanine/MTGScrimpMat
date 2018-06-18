@@ -2,12 +2,14 @@ import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angu
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { Player }        from '../data-model';
 import { PlayerServiceService } from '../player-service.service';
+import { PlayerDialogComponent } from '../player-dialog/player-dialog.component';
 
 import { HttpClient } from '@angular/common/http';
 import { saveAs } from 'file-saver/FileSaver';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material';
 // import { EventEmitter } from 'protractor';
 
 @Component({
@@ -24,7 +26,9 @@ export class PlayerFormComponent implements OnInit, OnChanges{
   // selectedPlayer: Player;
   players: Player[];
 
-  constructor(private fb: FormBuilder, private playerService: PlayerServiceService) { }
+  constructor(private fb: FormBuilder,
+              private playerService: PlayerServiceService,
+              public dialog: MatDialog, ) { }
 
   ngOnChanges() {
     if(this.playerForm)
@@ -85,5 +89,34 @@ export class PlayerFormComponent implements OnInit, OnChanges{
     if(this.selectedPlayer.draws > 0)
       str += this.selectedPlayer.draws;
     return str;
+  }
+
+  openEditDialog(player: Player)
+  {
+    let dialogRef = this.dialog.open(PlayerDialogComponent, {
+      width: '500px',
+      data: { player }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(!result)
+        return;
+      //TODO don't uniquely identify by name. Make some sort of ID
+      var playerToEdit = this.players.find(player => player.id === result.id)
+      
+      playerToEdit.name = result.name;
+      playerToEdit.deck = result.deck;
+      playerToEdit.wins = result.wins;
+      playerToEdit.losses = result.losses;
+      playerToEdit.draws = result.draws;
+      playerToEdit.deckList = result.deckList;
+
+      // this.table.renderRows();
+      this.playerService.updatePlayer(result as Player).subscribe((response: any) => 
+      {
+        this.playerService.getData().subscribe((data: Player[]) => this.players = data);
+      });
+    });
   }
 }

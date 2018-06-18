@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 import * as auth0 from 'auth0-js';
 
 (window as any).global = window;
@@ -15,15 +16,20 @@ export class AuthService implements OnInit{
     responseType: 'token id_token',
     audience: 'https://scrimp.auth0.com/userinfo',
     //@PRODUCTION
-    redirectUri: 'https://stark-headland-48165.herokuapp.com/callback',
+    // redirectUri: 'https://stark-headland-48165.herokuapp.com/callback',
 
     //@DEVELOPMENT
     // redirectUri: 'http://localhost:4200/callback',
+    redirectUri: environment.redirectUri,
     scope: 'openid profile'
   });
 
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) {
+    if(this.isAuthenticated()) {
+      this.getUserProfile();
+    }
+  }
 
   ngOnInit()
   {

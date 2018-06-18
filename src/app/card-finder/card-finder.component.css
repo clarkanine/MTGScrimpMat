@@ -1,10 +1,5 @@
 .example-card {
-    max-width: 200px;
-    float: left
-  }
-
-  .select-card {
-    max-width: 25;
+    max-width: 20%;
     float: left
   }
 
@@ -17,7 +12,7 @@
   }
 
   .display-card {
-    margin: auto; width: 50%;
+    margin: auto;
   }
 
   .scrollable {
