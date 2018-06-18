@@ -1,7 +1,7 @@
 export class Player {
     _id = null;
     id = -1;
-    name = 'John';
+    name = '';
     deck = '';
     wins = 0;
     losses = 0;

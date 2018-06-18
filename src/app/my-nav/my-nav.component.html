@@ -25,8 +25,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>MTG Scrimp</span>
-      <div class="pull-right"><button mat-button *ngIf="!authService.userProfile" mat-button (click)="loginClicked()">Login</button></div>
-      <button mat-button *ngIf="authService.userProfile" (click)="authService.logout()" class="pull-right">Logout {{authService.getEmail()}}</button>
+      <div class="pull-right"><button mat-button *ngIf="!authService.isAuthenticated()" mat-button (click)="loginClicked()">Login</button></div>
+      <button mat-button *ngIf="authService.isAuthenticated()" (click)="authService.logout()" class="pull-right">Logout {{authService.getEmail()}}</button>
     </mat-toolbar>
     <router-outlet class="margins"></router-outlet>
   </mat-sidenav-content>

@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
 })
 export class PlayerListComponent implements OnInit {
   @ViewChild(MatTable) table: MatTable<any>;
-  displayedColumns = ['points', 'name', 'deck', 'record', 'options'];
+  displayedColumns = ['points', 'name', 'deck', 'record'];
   dataSource: Player[];
   response: any;
   profile: any;

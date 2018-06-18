@@ -4,7 +4,7 @@ var Player = /** @class */ (function () {
     function Player() {
         this._id = null;
         this.id = -1;
-        this.name = 'John';
+        this.name = '';
         this.deck = '';
         this.wins = 0;
         this.losses = 0;
