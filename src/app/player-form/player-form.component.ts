@@ -60,15 +60,14 @@ export class PlayerFormComponent implements OnInit, OnChanges{
   playerChanged()
   {
     this.selectedPlayerChange.emit(this.selectedPlayer);
-    // this.updatePlayerForm();
   }
 
   //TODO refactor this to use some sort of SaveService
   saveValues() {
     // if(!this.selectedPlayer)
     //   return;
-    this.saveOneValue(this.playerForm.value.name ? this.selectedPlayer.name : 'Name', 'name');
-    this.saveOneValue(this.playerForm.value.deck ? this.selectedPlayer.deck : 'Deck', 'deck');
+    this.saveOneValue(this.playerForm.value.name ? this.playerForm.value.name : 'Name', 'name');
+    this.saveOneValue(this.playerForm.value.deck ? this.playerForm.value.deck : 'Deck', 'deck');
     this.saveOneValue(this.playerForm.value.life+'', 'life');
     this.saveOneValue(this.playerForm.value.poison+'', 'poison');
     this.saveOneValue(this.getRecord(), 'record');
@@ -102,7 +101,7 @@ export class PlayerFormComponent implements OnInit, OnChanges{
       console.log('The dialog was closed');
       if(!result)
         return;
-      //TODO don't uniquely identify by name. Make some sort of ID
+
       var playerToEdit = this.players.find(player => player.id === result.id)
       
       playerToEdit.name = result.name;
